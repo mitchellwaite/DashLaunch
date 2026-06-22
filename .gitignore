@@ -1,0 +1,30 @@
+# Visual Studio build output
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+ipch/
+.vs/
+
+# VS user/temp files
+*.user
+*.suo
+*.ncb
+*.aps
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+*.cache
+*.ilk
+*.tlog
+*.idb
+
+# Build intermediates
+*.obj
+*.pdb
+*.exp
+*.res
+
+# Claude Code local settings
+.claude/settings.local.json
