@@ -8,7 +8,6 @@ ipch/
 [Rr]elease_LTCG/
 [Rr]elease21250.0/
 [Rr]elease21256.0/
-embed/
 
 # VS user/temp files
 *.user
@@ -34,3 +33,8 @@ svnversion.h
 
 # Claude Code local settings
 .claude/settings.local.json
+
+# DashLaunch build artifacts
+embed/lhelper.xex
+embed/launch.xex
+embed/usvr.xex
