@@ -215,8 +215,7 @@ HRESULT InstallerMain::OnInit(XUIMessageInit* pInitData, BOOL& bHandled)
 #ifdef LOG_EXTRA_OUT
 		lDbgPrint("OnInit: setting update mode\n");
 #endif
-		SetCurrentScene(SCENE_NONE);
-		Install(TRUE);
+		SetCurrentScene(SCENE_LIVEOPT);
 	}
 	bHandled = TRUE;
 #ifdef LOG_EXTRA_OUT
@@ -626,8 +625,6 @@ HRESULT InstallerMain::OnNotifyPress(HXUIOBJ hObjPressed, BOOL& bHandled)
 				{
 					if(m_isInstalled)
 						Uninstall();
-					else
-						Install(FALSE);
 				}
 				else if(hObjPressed == m_MiscPatches)
 				{
@@ -922,10 +919,8 @@ VOID InstallerMain::UpdateInstallStatus(VOID)
 			m_MiscUninstall.SetText(Strings::GetInstance().Look(L"uninstall"));
 		else
 		{
-			if(m_isRunning)
-				m_MiscUninstall.SetText(Strings::GetInstance().Look(L"update"));
-			else
-				m_MiscUninstall.SetText(Strings::GetInstance().Look(L"install"));
+			m_MiscUninstall.SetEnable(FALSE);
+			m_MiscPatches.SetEnable(FALSE);
 		}
 
 		if(m_isRunning)
@@ -937,7 +932,7 @@ VOID InstallerMain::UpdateInstallStatus(VOID)
 		else
 			m_MiscUnload.SetText(Strings::GetInstance().Look(L"load"));
 
-		if(m_arePatchesAvail)
+		if(m_arePatchesAvail && m_isInstalled)
 			m_MiscPatches.SetEnable(TRUE);
 		else
 			m_MiscPatches.SetEnable(FALSE);
