@@ -88,7 +88,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_LTCG|Xbox 360'">
     <PreBuildEvent>
       <Command>del /f $(SolutionDir)embed\$(ProjectName).xex
-subwcrev ../ ../rev_template.h ../svnversion.h</Command>
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(ProjectDir)..\gitversion.ps1" -RepoRoot "$(ProjectDir).." -TemplateFile "$(ProjectDir)..\rev_template.h" -OutputFile "$(ProjectDir)..\svnversion.h"</Command>
     </PreBuildEvent>
     <ClCompile>
       <AdditionalOptions>/MP  %(AdditionalOptions)</AdditionalOptions>
@@ -151,7 +151,7 @@ subwcrev ../ ../rev_template.h ../svnversion.h</Command>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
     <PreBuildEvent>
       <Command>del /f $(SolutionDir)embed\$(ProjectName).xex
-subwcrev ../ ../rev_template.h ../svnversion.h</Command>
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(ProjectDir)..\gitversion.ps1" -RepoRoot "$(ProjectDir).." -TemplateFile "$(ProjectDir)..\rev_template.h" -OutputFile "$(ProjectDir)..\svnversion.h"</Command>
     </PreBuildEvent>
     <ClCompile>
       <AdditionalOptions>/MP  %(AdditionalOptions)</AdditionalOptions>
